@@ -18,13 +18,12 @@ class MatakuliahController extends Controller{
 
     public function create(){
         return view('matakuliah.add');
-        
     }
 
-
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        $matakuliah = new Matakuliah();
+        $matakuliah->create($request->all());
+        return redirect('/matakuliah');
     }
 
 

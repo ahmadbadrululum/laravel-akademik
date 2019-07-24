@@ -7,27 +7,30 @@
             <div class="card">
                 <div class="card-header">Tambah matakuliah</div>
                 <div class="card-body">
-                    <form method="POST" action="">
+                    <!-- <form method="POST" action=""> -->
+                    {{ Form::open(['url' => 'matakuliah', 'method' => 'post']) }}
+                    <!-- echo Form::open(['url' => 'foo/bar', 'method' => 'put']) -->
+
                             @csrf
                         <div class="form-group row">
                             <label for="kode_mk" class="col-md-2 col-form-label text-md-right">{{ __('Kode Matakuliah') }}</label>
                             <div class="col-md-6">
                                 <!-- <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus> -->
-                                {{ Form::text('kode_mk', '', ['class' => 'form-control', 'placeholder' => 'kode matkul', 'id'=>'kode_mk'])  }}
+                                {{ Form::text('kode_mk', null, ['class' => 'form-control', 'placeholder' => 'kode matkul', 'id'=>'kode_mk', 'required' => 'required'])  }}
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="nama_mk" class="col-md-2 col-form-label text-md-right">{{ __('Nama Matakuliah') }}</label>
                             <div class="col-md-6">
-                                {{ Form::text('nama_mk', '', ['class' => 'form-control', 'placeholder' => 'nama matkul',  'id'=>'nama_mk'])  }}
+                                {{ Form::text('nama_mk', null, ['class' => 'form-control', 'placeholder' => 'nama matkul',  'id'=>'nama_mk', 'required' => 'required'])  }}
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="jml_sks" class="col-md-2 col-form-label text-md-right">{{ __('Jumlah sks') }}</label>
                             <div class="col-md-6">
-                                {{ Form::text('kode_mk', '', ['class' => 'form-control', 'placeholder' => 'kode matkul',  'id'=>'jml_sks'])  }}
+                                {{ Form::text('jml_sks', null, ['class' => 'form-control', 'placeholder' => 'kode matkul',  'id'=>'jml_sks', 'required' => 'required'])  }}
                             </div>
                         </div>
                         
