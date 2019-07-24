@@ -17,7 +17,8 @@ class MatakuliahController extends Controller{
     }
 
     public function create(){
-        //
+        return view('matakuliah.add');
+        
     }
 
 
