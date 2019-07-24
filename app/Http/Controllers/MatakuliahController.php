@@ -1,10 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Matakuliah;
+use DataTables;
+
 
 class MatakuliahController extends Controller{
+
+    public function json(){
+        return DataTables::of(Matakuliah::all())->make(true);
+    }
 
     public function index(){
         return view('matakuliah.index');

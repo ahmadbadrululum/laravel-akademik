@@ -18,4 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/matakuliah/json', 'MatakuliahController@json');
 Route::resource('/matakuliah', 'MatakuliahController');
