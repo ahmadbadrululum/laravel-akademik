@@ -9,9 +9,18 @@ use DataTables;
 class MatakuliahController extends Controller{
 
     public function json(){
-        return DataTables::of(Matakuliah::all())->make(true);
+        return DataTables::of(Matakuliah::all())
+        ->addColumn('action', function ($row){
+            $action  = '<a href="/matakuliah/'.$row->id.'/edit" class="btn btn-warning">Edit</a>';
+            $action .= \Form::open(['url' => '/matakuliah/'.$row->id, 'method' => 'delete', 'style'=>'float:right']);
+            $action .= '<button type="submit" class="btn btn-danger">Hapus</button>';
+            $action .= \Form::close();
+            return $action;
+            // return '<a href="/matakuliah/'.$row->id.'/edit" class="btn btn-warning">Edit</a>';
+        })
+        ->make(true);
     }
-
+    
     public function index(){
         return view('matakuliah.index');
     }
@@ -27,36 +36,28 @@ class MatakuliahController extends Controller{
     }
 
 
-    public function show($id)
-    {
-        //
+    public function show($id){}
+
+    public function edit($id){
+        $data['matakuliah'] = Matakuliah::where('id', $id)->first();
+        return view('matakuliah.edit', $data);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     *      * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id){
+        $matakuliahId = Matakuliah::where('id', $id);
+        $matakuliah->update($request->except('_method','_token'));
+        return redirect('/matakuliah');
     }
 
     /**
      * Remove the specified resource from storage.
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id){
+        // echo 'dsad';
+        $matakuliah = Matakuliah::where('id', $id);
+        $matakuliah->delete();
+        return redirect('/matakuliah');
     }
 }

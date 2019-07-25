@@ -17,6 +17,7 @@
                                 <th>Kode MK</th>
                                 <th>Nama MK</th>
                                 <th>Jumlah sks</th>
+                                <th width="120">Action</th>
                             </tr>
                         </thead>
                     </table>
@@ -39,6 +40,7 @@
                 {data: 'kode_mk', name: 'kode_mk'},
                 {data: 'nama_mk', name: 'nama_mk'},
                 {data: 'jml_sks', name: 'jml_sks'},
+                {data: 'action', name: 'action'},
             ]
         });
     });
