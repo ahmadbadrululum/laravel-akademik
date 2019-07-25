@@ -30,6 +30,13 @@ class MatakuliahController extends Controller{
     }
 
     public function store(Request $request){
+
+        $validatedData = $request->validate([
+            'kode_mk' => 'required|unique:matakuliahs|min:4',
+            'nama_mk' => 'required',
+            'jml_sks' => 'required',
+        ]);
+
         $matakuliah = new Matakuliah();
         $matakuliah->create($request->all());
         return redirect('/matakuliah');
@@ -45,7 +52,12 @@ class MatakuliahController extends Controller{
     }
 
     public function update(Request $request, $id){
-        $matakuliahId = Matakuliah::where('id', $id);
+
+        $validatedData = $request->validate([
+            'nama_mk' => 'required',
+            'jml_sks' => 'required',
+        ]);
+        $matakuliah = Matakuliah::where('id', $id);
         $matakuliah->update($request->except('_method','_token'));
         return redirect('/matakuliah');
     }

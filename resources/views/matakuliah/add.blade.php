@@ -7,6 +7,16 @@
             <div class="card">
                 <div class="card-header">Tambah matakuliah</div>
                 <div class="card-body">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                     <!-- <form method="POST" action=""> -->
                     {{ Form::open(['url' => 'matakuliah', 'method' => 'post']) }}
                     <!-- echo Form::open(['url' => 'foo/bar', 'method' => 'put']) -->
