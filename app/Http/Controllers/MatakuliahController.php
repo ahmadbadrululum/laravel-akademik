@@ -11,9 +11,9 @@ class MatakuliahController extends Controller{
     public function json(){
         return DataTables::of(Matakuliah::all())
         ->addColumn('action', function ($row){
-            $action  = '<a href="/matakuliah/'.$row->id.'/edit" class="btn btn-warning">Edit</a>';
+            $action  = '<a href="/matakuliah/'.$row->id.'/edit" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i> edit</a>';
             $action .= \Form::open(['url' => '/matakuliah/'.$row->id, 'method' => 'delete', 'style'=>'float:right']);
-            $action .= '<button type="submit" class="btn btn-danger">Hapus</button>';
+            $action .= '<button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> hapus</button>';
             $action .= \Form::close();
             return $action;
             // return '<a href="/matakuliah/'.$row->id.'/edit" class="btn btn-warning">Edit</a>';

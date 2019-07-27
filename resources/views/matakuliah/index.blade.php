@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">@yield('title') <a href="/matakuliah/create" class="btn btn-success pull-right btn-sm">Add</a></div>
+                <div class="card-header">@yield('title') <a href="/matakuliah/create" class="btn btn-success pull-right btn-sm"><i class="fa fa-plus"></i> Add</a></div>
                 <div class="card-body">
                 @include('alert_success')
                 <?php 
@@ -18,7 +18,7 @@
                                 <th>Kode MK</th>
                                 <th>Nama MK</th>
                                 <th>Jumlah sks</th>
-                                <th width="120">Action</th>
+                                <th width="140">Action</th>
                             </tr>
                         </thead>
                     </table>
