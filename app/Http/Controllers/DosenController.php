@@ -8,6 +8,7 @@ use App\Dosen;
 
 
 class DosenController extends Controller{
+
     public function json(){
         return DataTables::of(Dosen::all())
             ->addColumn('action', function ($row){
@@ -19,7 +20,11 @@ class DosenController extends Controller{
             })
             ->make(true);
     }
-    
+
+    public function get(){
+        $data = Dosen::all();
+        var_dump($data);
+    }
     
     public function index(){
         return view('dosen.index');
@@ -34,12 +39,13 @@ class DosenController extends Controller{
     
     public function store(Request $request){
         $validatedData = $request->validate([
-                    'kode_mk' => 'required|unique:matakuliahs|min:4',
-                    'nama_mk' => 'required',
-                    'jml_sks' => 'required',
+            'nidn' => 'required|unique:dosens|min:3',
+            'nama' => 'required',
+            'email' => 'required',
+            'no_hp' => 'required',
         ]);
-        $matakuliah = new Matakuliah();
-        $matakuliah->create($request->all());
+        $dosen = new Dosen();
+        $dosen->create($request->all());
         return redirect('/dosen')->with('success', 'Data saved success!');
     }
     
@@ -50,7 +56,7 @@ class DosenController extends Controller{
     public function edit($id){
         $data = [
             'page' => 'edit',
-            'matakuliah' => Dosen::where('id', $id)->first()
+            'dosen' => Dosen::where('id', $id)->first()
         ];
         return view('dosen.edit', $data);
     }
@@ -58,18 +64,19 @@ class DosenController extends Controller{
     
     public function update(Request $request, $id){
         $validatedData = $request->validate([
-                        'nama_mk' => 'required',
-                        'jml_sks' => 'required',
+            'nama' => 'required',
+            'email' => 'required',
+            'no_hp' => 'required',
         ]);
-        $matakuliah = Dosen::where('id', $id);
-        $matakuliah->update($request->except('_method','_token'));
+        $dosen = Dosen::where('id', $id);
+        $dosen->update($request->except('_method','_token'));
         return redirect('/dosen')->with('success', 'Data edit success!');
     }
     
     
     public function destroy($id){
-        $matakuliah = Dosen::where('id', $id);
-        $matakuliah->delete();
+        $dosen = Dosen::where('id', $id);
+        $dosen->delete();
         return redirect('/dosen')->with('success', 'Delete data success!');
     }
 }
