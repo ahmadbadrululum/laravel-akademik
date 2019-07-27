@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-header">@yield('title') <a href="/matakuliah/create" class="btn btn-success pull-right btn-sm">Add</a></div>
                 <div class="card-body">
+                @include('alert_success')
                 <?php 
                 // echo Form::text('email', 'example@gmail.com', ['class'=>'form-control', 'id'=>'form email']);
                 ?>

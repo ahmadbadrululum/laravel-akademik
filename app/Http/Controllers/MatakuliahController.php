@@ -40,7 +40,7 @@ class MatakuliahController extends Controller{
 
         $matakuliah = new Matakuliah();
         $matakuliah->create($request->all());
-        return redirect('/matakuliah');
+        return redirect('/matakuliah')->with('success', 'Data saved success!');
     }
 
 
@@ -63,7 +63,7 @@ class MatakuliahController extends Controller{
         ]);
         $matakuliah = Matakuliah::where('id', $id);
         $matakuliah->update($request->except('_method','_token'));
-        return redirect('/matakuliah');
+        return redirect('/matakuliah')->with('success', 'Data edit success!');
     }
 
     /**
@@ -74,6 +74,6 @@ class MatakuliahController extends Controller{
         // echo 'dsad';
         $matakuliah = Matakuliah::where('id', $id);
         $matakuliah->delete();
-        return redirect('/matakuliah');
+        return redirect('/matakuliah')->with('success', 'Delete data success!');;
     }
 }
