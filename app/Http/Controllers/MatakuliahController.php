@@ -26,7 +26,8 @@ class MatakuliahController extends Controller{
     }
 
     public function create(){
-        return view('matakuliah.add');
+        $data['page'] = 'add';
+        return view('matakuliah.add', $data);
     }
 
     public function store(Request $request){
@@ -46,7 +47,10 @@ class MatakuliahController extends Controller{
     public function show($id){}
 
     public function edit($id){
-        $data['matakuliah'] = Matakuliah::where('id', $id)->first();
+        $data = [
+            'page' => 'edit',
+            'matakuliah' => Matakuliah::where('id', $id)->first(),
+        ];
         return view('matakuliah.edit', $data);
 
     }
