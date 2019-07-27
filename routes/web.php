@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/matakuliah/json', 'MatakuliahController@json')->name('matakuliah/json');
 Route::resource('/matakuliah', 'MatakuliahController');
+Route::resource('/dosen', 'DosenController');
+Route::get('/dosen/json', 'DosenController@json')->name('matakuliah/json');
