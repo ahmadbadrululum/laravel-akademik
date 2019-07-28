@@ -22,4 +22,6 @@ Route::get('/matakuliah/json', 'MatakuliahController@json')->name('matakuliah/js
 Route::resource('/matakuliah', 'MatakuliahController');
 Route::get('/dosen/json', 'DosenController@json')->name('dosen/json');
 Route::resource('/dosen', 'DosenController');
+Route::get('/fakultas/json', 'FakultasController@json')->name('fakultas/json');
+Route::resource('/fakultas', 'FakultasController');
 Route::resource('/dosen/get', 'DosemController@get');

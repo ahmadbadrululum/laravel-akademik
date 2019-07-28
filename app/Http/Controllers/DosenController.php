@@ -20,11 +20,6 @@ class DosenController extends Controller{
             })
             ->make(true);
     }
-
-    public function get(){
-        $data = Dosen::all();
-        var_dump($data);
-    }
     
     public function index(){
         return view('dosen.index');
