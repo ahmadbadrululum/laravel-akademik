@@ -24,7 +24,9 @@ Route::get('/dosen/json', 'DosenController@json')->name('dosen/json');
 Route::get('/jurusan/json', 'JurusanController@json')->name('jurusan/json');
 Route::get('/fakultas/json', 'FakultasController@json')->name('fakultas/json');
 Route::get('/ruangan/json', 'RuanganController@json')->name('ruangan/json');
+Route::get('/tahunAkademik/json', 'TahunAkademikController@json')->name('tahunAkademik/json');
 
+Route::resource('/tahunAkademik', 'TahunAkademikController');
 Route::resource('/ruangan', 'RuanganController');
 Route::resource('/matakuliah', 'MatakuliahController');
 Route::resource('/dosen', 'DosenController');
