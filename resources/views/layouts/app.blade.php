@@ -61,6 +61,9 @@
                             @endif
                         @else
                             <li class="nav-item ">
+                                <a class="nav-link" href="/kurikulum">Kurikulum</a>
+                            </li>
+                            <li class="nav-item ">
                                 <a class="nav-link" href="/ruangan">Ruangan</a>
                             </li>
                             <li class="nav-item ">
