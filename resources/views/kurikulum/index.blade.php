@@ -7,7 +7,6 @@
             <div class="card">
                 <div class="card-header">
                     @yield('title')
-                    <!-- <a href="/jurusan/create" class="btn btn-success pull-right btn-sm"><i class="fa fa-plus"></i> Add</a> -->
                 </div>
                 <div class="card-body">
                 @include('alert_success')
@@ -23,7 +22,8 @@
                             <td></td>
                             <td>
                                 <button class="btn btn-success">Refresh</button>
-                                <button class="btn btn-info">Input</button>
+                                <a href="/kurikulum/create" class="btn btn-primary"><i class="fa fa-plus"></i> Input</a>
+                                
                             </td>
                         </tr>
                     </table>
@@ -33,12 +33,30 @@
                     <table class="table table-hover table-bordered table-striped datatable" style="width:100%">
                         <thead>
                             <tr>
+                                <th>Jurusan</th>
                                 <th>Kode Matakuliah</th>
                                 <th>Nama Mata kuliah</th>
                                 <th>Sks</th>
+                                <th>Semester</th>
                                 <th width="140">Action</th>
                             </tr>
                         </thead>
+                        <tbody>
+                        @foreach ($kurikulum as $k)
+                            <tr>
+                                <td>{{ $k->nama_jurusan }}</td>
+                                <td>{{ $k->kode_mk }}</td>
+                                <td>{{ $k->nama_mk }}</td>
+                                <td>{{ $k->jml_sks }}</td>
+                                <td>{{ $k->semester }}</td>
+                                <td>
+                                    {{ Form::open(['url' => '/kurikulum/'.$k->id, 'method' => 'delete']) }}
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> hapus</button>
+                                    {{ Form::close() }}
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>
