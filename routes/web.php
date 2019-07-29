@@ -18,10 +18,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/matakuliah/json', 'MatakuliahController@json')->name('matakuliah/json');
-Route::resource('/matakuliah', 'MatakuliahController');
 Route::get('/dosen/json', 'DosenController@json')->name('dosen/json');
-Route::resource('/dosen', 'DosenController');
+Route::get('/jurusan/json', 'JurusanController@json')->name('jurusan/json');
 Route::get('/fakultas/json', 'FakultasController@json')->name('fakultas/json');
+Route::get('/ruangan/json', 'RuanganController@json')->name('ruangan/json');
+
+Route::resource('/ruangan', 'RuanganController');
+Route::resource('/matakuliah', 'MatakuliahController');
+Route::resource('/dosen', 'DosenController');
 Route::resource('/fakultas', 'FakultasController');
+Route::resource('/jurusan', 'JurusanController');
 Route::resource('/dosen/get', 'DosemController@get');
