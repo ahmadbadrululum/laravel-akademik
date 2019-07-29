@@ -8,14 +8,16 @@ use App\Matakuliah;
 use Illuminate\Http\Request;
 
 class KurikulumController extends Controller{
-    public function index(){
+    public function index(Request $request){
         $joinData = \DB::table('kurikulums')
                     ->join('matakuliahs', 'matakuliahs.id', '=', 'kurikulums.matakuliah_id_kurikulum')
                     ->join('jurusans', 'jurusans.id', '=', 'kurikulums.jurusan_id_kurikulum')
                     ->select('kurikulums.*','jurusans.nama_jurusan', 'matakuliahs.nama_mk','matakuliahs.kode_mk', 'matakuliahs.jml_sks')
+                    ->where('jurusans.id', $request->get('jurusan'))
                     ->get();
         $data = [
             'jurusan' => Jurusan::pluck('nama_jurusan', 'id'),
+            'jurusan_select' => $request->get('jurusan'),
             'kurikulum' => $joinData,
         ];
         return view('kurikulum.index', $data);

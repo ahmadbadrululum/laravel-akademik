@@ -14,7 +14,7 @@
 
                             @csrf
                     @include('kurikulum.form')
-                    </form>
+                    {{ Form::close() }}
                 </div>
             </div>
         </div>
