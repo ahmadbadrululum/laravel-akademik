@@ -60,20 +60,17 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item ">
-                                <a class="nav-link" href="/kurikulum">Kurikulum</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="/ruangan">Ruangan</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="/fakultas">Fakultas</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="/matakuliah">Matakuliah</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="/jurusan">Jurusan</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/ruangan">Ruangan</a>
+                                    <a class="dropdown-item" href="/fakultas">Fakultas</a>
+                                    <a class="dropdown-item" href="/matakuliah">Matakuliah</a>
+                                    <a class="dropdown-item" href="/jurusan">Jurusan</a>
+                                    <a class="dropdown-item" href="/kurikulum">kurikulum</a>
+                                </div>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="/dosen">Dosen</a>
@@ -83,7 +80,7 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -108,7 +105,7 @@
             @yield('content')
         </main>
     </div>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     @stack('scripts');
 </body>
