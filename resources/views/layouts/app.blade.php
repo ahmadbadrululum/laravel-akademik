@@ -73,6 +73,9 @@
                                 </div>
                             </li>
                             <li class="nav-item ">
+                                <a class="nav-link" href="/jadwalkuliah">Jadwal Kuliah</a>
+                            </li>
+                            <li class="nav-item ">
                                 <a class="nav-link" href="/dosen">Dosen</a>
                             </li>
                             <li class="nav-item ">

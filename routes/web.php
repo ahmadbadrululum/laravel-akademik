@@ -27,6 +27,7 @@ Route::get('/ruangan/json', 'RuanganController@json')->name('ruangan/json');
 Route::get('/tahunAkademik/json', 'TahunAkademikController@json')->name('tahunAkademik/json');
 Route::get('/setting', 'SettingController@index');
 Route::put('/setting/{setting}', 'SettingController@update');
+Route::get('/jadwalkuliah', 'JadwalKuliahController@index');
 
 Route::resource('/kurikulum', 'KurikulumController');
 Route::resource('/tahunAkademik', 'TahunAkademikController');
