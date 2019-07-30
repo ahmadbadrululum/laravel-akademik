@@ -22,6 +22,4 @@ class SettingController extends Controller{
         $setting->update($request->except('_method','_token'));
         return redirect('/setting')->with('success', 'Data edit success!');
     }
-
-
 }

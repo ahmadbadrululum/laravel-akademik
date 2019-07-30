@@ -8,6 +8,7 @@ use App\Jurusan;
 class JadwalKuliahController extends Controller{
 
     public function index(){
+
         $data = [
             'jurusan' => Jurusan::pluck('nama_jurusan', 'id'),
         ];
