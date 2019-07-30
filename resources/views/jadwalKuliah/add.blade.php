@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'kurikulum')
+@section('title', 'Jurusan')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -9,11 +9,11 @@
                 <div class="card-body">
                     @include('validation_error')
                     <!-- <form method="POST" action=""> -->
-                    {{ Form::open(['url' => 'kurikulum', 'method' => 'post']) }}
+                    {{ Form::open(['url' => 'jadwalkuliah', 'method' => 'post']) }}
                     <!-- echo Form::open(['url' => 'foo/bar', 'method' => 'put']) -->
 
                             @csrf
-                    @include('kurikulum.form')
+                    @include('jadwalKuliah.form')
                     {{ Form::close() }}
                 </div>
             </div>

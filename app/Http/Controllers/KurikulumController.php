@@ -39,10 +39,7 @@ class KurikulumController extends Controller{
             'jurusan_id_kurikulum' => 'required',
             'matakuliah_id_kurikulum' => 'required',
             'semester' => 'required',
-        ]);
-        // var_dump($request->all());
-        // die;
-
+        ]);;
         $kurikulum = new Kurikulum();
         $kurikulum->create($request->all());
         return redirect('/kurikulum')->with('success', 'Data saved success!');

@@ -28,6 +28,8 @@ Route::get('/tahunAkademik/json', 'TahunAkademikController@json')->name('tahunAk
 Route::get('/setting', 'SettingController@index');
 Route::put('/setting/{setting}', 'SettingController@update');
 Route::get('/jadwalkuliah', 'JadwalKuliahController@index');
+Route::get('/jadwalkuliah/create', 'JadwalKuliahController@create');
+Route::post('/jadwalkuliah', 'JadwalKuliahController@store');
 
 Route::resource('/kurikulum', 'KurikulumController');
 Route::resource('/tahunAkademik', 'TahunAkademikController');
