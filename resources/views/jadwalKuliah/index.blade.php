@@ -22,7 +22,7 @@
                                 <tr>
                                     <th>Semester</th>
                                     <td>
-                                        {{ Form::select('jenjang',['1'=> 'semester 1','2'=> 'semester 2', '3'=> 'semester 3', '4'=> 'semester 4','5'=> 'Semester 5','6'=> 'semester 6','7'=> 'semester 7','8'=> 'semester 8'], null, ['class'=>'form-control'])  }}
+                                        {{ Form::select('semester',$semester, null, ['class'=>'form-control'])  }}
                                     </td>
                                 </tr>
                                 <tr>

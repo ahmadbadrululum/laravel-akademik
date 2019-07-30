@@ -17,6 +17,7 @@ class JadwalKuliahController extends Controller{
     public function index(){
         $data = [
             'jurusan' => Jurusan::pluck('nama_jurusan', 'id'),
+            'semester' => Semester::pluck('semester', 'id'),
         ];
         return view('jadwalKuliah.index', $data);
     }
