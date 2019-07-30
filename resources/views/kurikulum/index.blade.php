@@ -10,7 +10,8 @@
                 </div>
                 <div class="card-body">
                 @include('alert_success')
-                    {{ Form::open(['url' => 'kurikulum', 'method' => 'get']) }}                    
+                    {{ Form::open(['url' => 'kurikulum', 'method' => 'get']) }}  
+                    @csrf                  
                     <table class="table table-bordered table-striped" style="width:100%">
                         <tr>
                             <td>Jurusan</td>

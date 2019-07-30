@@ -25,6 +25,7 @@ Route::get('/jurusan/json', 'JurusanController@json')->name('jurusan/json');
 Route::get('/fakultas/json', 'FakultasController@json')->name('fakultas/json');
 Route::get('/ruangan/json', 'RuanganController@json')->name('ruangan/json');
 Route::get('/tahunAkademik/json', 'TahunAkademikController@json')->name('tahunAkademik/json');
+Route::get('/mahasiswa/json', 'MahasiswaController@json')->name('mahasiswa/json');
 Route::get('/setting', 'SettingController@index');
 Route::put('/setting/{setting}', 'SettingController@update');
 Route::get('/jadwalkuliah', 'JadwalKuliahController@index');
@@ -32,6 +33,7 @@ Route::get('/jadwalkuliah/create', 'JadwalKuliahController@create');
 Route::post('/jadwalkuliah', 'JadwalKuliahController@store');
 
 Route::resource('/kurikulum', 'KurikulumController');
+Route::resource('/mahasiswa', 'MahasiswaController');
 Route::resource('/tahunAkademik', 'TahunAkademikController');
 Route::resource('/ruangan', 'RuanganController');
 Route::resource('/matakuliah', 'MatakuliahController');

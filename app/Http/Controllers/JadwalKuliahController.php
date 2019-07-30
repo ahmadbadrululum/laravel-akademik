@@ -14,10 +14,22 @@ use App\JadwalKuliah;
 
 class JadwalKuliahController extends Controller{
 
-    public function index(){
+    public function index(Request $request){
+        $joinData = \DB::table('jadwal_kuliahs')
+                    ->join('jam_kuliahs', 'jam_kuliahs.id', '=', 'jadwal_kuliahs.jamKuliah_id_jadwalKuliah')
+                    ->join('matakuliahs', 'matakuliahs.id', '=', 'jadwal_kuliahs.matakuliah_id_jadwalKuliah')
+                    ->join('dosens', 'dosens.id', '=', 'jadwal_kuliahs.dosen_id_jadwalKuliah')
+                    ->join('ruangans', 'ruangans.id', '=', 'jadwal_kuliahs.ruangan_id_jadwalKuliah')
+                    ->select('jadwal_kuliahs.*', 'jam_kuliahs.jam_kuliah', 'matakuliahs.nama_mk', 'dosens.nama', 'ruangans.nama_ruangan')
+                    ->where('jadwal_kuliahs.jurusan_id_jadwalKuliah', $request->get('jurusan'))
+                    ->where('jadwal_kuliahs.semester_id_jadwalKuliah', $request->get('semester'))
+                    ->get();
+        // return $joinData;
+        // die;
         $data = [
             'jurusan' => Jurusan::pluck('nama_jurusan', 'id'),
             'semester' => Semester::pluck('semester', 'id'),
+            'jadwalKuliah' => $joinData,
         ];
         return view('jadwalKuliah.index', $data);
     }
