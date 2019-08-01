@@ -79,6 +79,9 @@
                                 <a class="nav-link" href="/dosen">Dosen</a>
                             </li>
                             <li class="nav-item ">
+                                <a class="nav-link" href="/mahasiswa">mahasiswa</a>
+                            </li>
+                            <li class="nav-item ">
                                 <a class="nav-link" href="/tahunAkademik">Tahun Akademik</a>
                             </li>
                             <li class="nav-item ">
